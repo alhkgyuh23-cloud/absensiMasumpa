@@ -11,6 +11,7 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/scan.js",
                 "resources/js/absence-notes.js",
+                "resources/js/dashboard.js",
             ],
             refresh: true,
             fonts: [

@@ -492,10 +492,10 @@ function showSuccessCard(data) {
     // Kalimat suara: "Atas nama Nofailah, absen masuk berhasil. Terlambat."
     const nama = normalizeNameForSpeech(data.nama);
     const kalimat = !isMasuk
-        ? `Atas nama ${nama}, absen pulang berhasil.`
+        ? `${nama}.`
         : telat
-          ? `Atas nama ${nama}, absen masuk berhasil. Terlambat.`
-          : `Atas nama ${nama}, absen masuk berhasil. Tepat waktu.`;
+          ? `${nama}, Terlambat.`
+          : `${nama}, Tepat waktu.`;
 
     announce("success", kalimat);
 }
@@ -546,7 +546,7 @@ function handleScanResponse(status, data) {
     // "Sudah tercatat": sebut nama siswa jika dikirim server
     let speech = null;
     if (reason === "duplicate" && data.nama) {
-        speech = `Atas nama ${normalizeNameForSpeech(data.nama)}, sudah tercatat.`;
+        speech = `${normalizeNameForSpeech(data.nama)}, sudah tercatat.`;
     }
 
     showPopup(data.message ?? "Terjadi kesalahan.", level, duration, speech);
